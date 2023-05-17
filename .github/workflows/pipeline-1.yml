@@ -1,10 +1,15 @@
-name: Hello World
+name: Build & Test
 
 on: push
 
 jobs:
   my-job:
     runs-on: ubuntu-latest
+    container: gradle:6-jdk11
     steps:
-      - name: my-step
-        run: echo "Hello World!"
+      - name: Clone Repository
+        uses: actions/checkout@v3 
+      
+      - name: Build App
+        run: |
+          ci/build-app.sh
