@@ -32,9 +32,9 @@ jobs:
     permissions:
       packages: write
     env:
-      registry: ghcr.
       docker_username: ${{ github.actor }}
       docker_password: ${{ secrets.GITHUB_TOKEN }}
+      GIT_COMMIT: ${{ github.sha }}
     steps:
       - name: Download Artifacts
         uses: actions/download-artifact@v3
